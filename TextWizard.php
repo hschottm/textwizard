@@ -63,11 +63,11 @@ class TextWizard extends Widget
 	{
 		if (is_array($GLOBALS['TL_JAVASCRIPT']))
 		{
-			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'system/modules/textwizard/assets/js/textwizard.js');
+			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'system/modules/textwizard/assets/textwizard.js');
 		}
 		else
 		{
-			$GLOBALS['TL_JAVASCRIPT'] = array('system/modules/textwizard/assets/js/textwizard.js');
+			$GLOBALS['TL_JAVASCRIPT'] = array('system/modules/textwizard/assets/textwizard.js');
 		}
 
 		$arrButtons = array('new','copy', 'up', 'down', 'delete');
@@ -77,7 +77,6 @@ class TextWizard extends Widget
 		if (\Input::get($strCommand) && is_numeric(\Input::get('cid')) && \Input::get('id') == $this->currentRecord)
 		{
 			$this->import('Database');
-
 			switch (\Input::get($strCommand))
 			{
 				case 'new':
