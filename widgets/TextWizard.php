@@ -1,22 +1,23 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php 
 
 /**
- * @copyright  Helmut Schottmüller 2008
- * @author     Helmut Schottmüller <typolight@aurealis.de>
+ * @copyright  Helmut Schottmüller 2008-2013
+ * @author     Helmut Schottmüller <https://github.com/hschottm>
  * @package    Backend
  * @license    LGPL
  */
 
+namespace Contao;
 
 /**
  * Class TextWizard
  *
  * Provide methods to handle text lists
- * @copyright  Helmut Schottmüller 2008
- * @author     Helmut Schottmüller <typolight@aurealis.de>
+ * @copyright  Helmut Schottmüller 2008-2013
+ * @author     Helmut Schottmüller <https://github.com/hschottm>
  * @package    Controller
  */
-class TextWizard extends Widget
+class TextWizard extends \Widget
 {
 	/**
 	 * Submit user input
@@ -136,5 +137,3 @@ class TextWizard extends Widget
   </table></div>';
 	}
 }
-
-?>
