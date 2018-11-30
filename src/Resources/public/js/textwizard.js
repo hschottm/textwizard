@@ -1,43 +1,48 @@
 var TextWizard = {
 	textWizard: function(el, command, id) {
-		var table = $(id);
-		var rows = table.getChildren().getChildren()[0];
-		var parentTd = $(el).getParent();
-		var parentTr = parentTd.getParent();
-		var cols = parentTr.getChildren();
-		Backend.getScrollOffset();
-		switch (command) {
+    var rows = $(id).getChildren();
+    var parentRow = $(el).getParent();
+    Backend.getScrollOffset();
+    switch (command) {
 		case 'new':
-			var clone = parentTr.clone(true).inject(parentTr, 'after');
-			clone.getFirst().getFirst().value = "";
+			var clone = parentRow.clone(true).inject(parentRow, 'after');
+			clone.getFirst().value = "";
 			break;
 		case 'copy':
-			var clone = parentTr.clone(true);
-			clone.inject(parentTr, 'after');
-			clone.getFirst().getFirst().value = parentTr.getFirst().getFirst().value;
+			var clone = parentRow.clone(true);
+			clone.inject(parentRow, 'after');
+			clone.getFirst().value = parentRow.getFirst().value;
 			break;
 		case 'up':
-			if (parentTr.getPrevious()) {
-				parentTr.inject(parentTr.getPrevious(),'before')
+			if (parentRow.getPrevious()) {
+				parentRow.inject(parentRow.getPrevious(),'before')
 			}
 			break;
 		case 'down':
-			if (parentTr.getNext()) {
-				parentTr.inject(parentTr.getNext(), 'after')
+			if (parentRow.getNext()) {
+				parentRow.inject(parentRow.getNext(), 'after')
 			}
 			break;
 		case 'delete':
-			(rows.length > 1) ? parentTr.dispose() : null;
+			(rows.length > 1) ? parentRow.dispose() : null;
 			break
 		}
-		rows = table.getChildren().getChildren();
-		for (i = 0; i < rows[0].length; i++) {
-			row = rows[0][i];
-			a = row.getFirst().getNext().getFirst();
-			a.href = a.href.replace(/cid\=[0-9]+/ig, "cid=" + i)
-		}
+    rows = $(id).getChildren();
+    for (i = 0; i < rows.length; i++)
+    {
+      row = rows[i];
+      items = row.getChildren();
+      for (j = 0; j < items.length; j++)
+      {
+        item = items[j];
+        if ($(item).nodeName == 'A')
+        {
+          item.href = item.href.replace(/cid\=[0-9]+/ig, "cid=" + i);
+        }
+      }
+    }
 		if (clone) {
-			clone.getFirst().getFirst().select()
+			clone.getFirst().select()
 		}
 	}
 };

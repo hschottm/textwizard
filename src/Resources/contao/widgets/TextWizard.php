@@ -64,11 +64,11 @@ class TextWizard extends \Widget
 	{
 		if (is_array($GLOBALS['TL_JAVASCRIPT']))
 		{
-			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'bundle/hschottmtextwizardbundle/js/textwizard.js');
+			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'bundles/hschottmtextwizard/js/textwizard.js');
 		}
 		else
 		{
-			$GLOBALS['TL_JAVASCRIPT'] = array('bundle/hschottmtextwizardbundle/js/textwizard.js');
+			$GLOBALS['TL_JAVASCRIPT'] = array('bundles/hschottmtextwizard/js/textwizard.js');
 		}
 
 		$arrButtons = array('new','copy', 'up', 'down', 'delete');
@@ -116,25 +116,24 @@ class TextWizard extends \Widget
 
 		$wizard = ($this->wizard) ? '<div class="tl_wizard">' . $this->wizard . '</div>' : '';
 		// Add label
-		$return .= '<div class="tl_multitextwizard">' . $wizard . '
-	  <table cellspacing="0" cellpadding="0" class="tl_multitextwizard" id="ctrl_'.$this->strId.'" summary="Text wizard">';
+		$return .= '<div class="tl_multitextwizard">' . $wizard;
 //		$return .= '<ul id="ctrl_'.$this->strId.'" class="tl_listwizard">';
 		$hasTitles = array_key_exists('buttonTitles', $this->arrConfiguration) && is_array($this->arrConfiguration['buttonTitles']);
 		// Add input fields
+    $return .= '<div id="tl_multitextwizard_rows_'.$this->strId.'">';
 		for ($i=0; $i<count($this->varValue); $i++)
 		{
-			$return .= '<tr><td style="padding-right: 5px;"><input type="text" name="'.$this->strId.'[]" id="' . $this->strId . '_' . ($i+1) . '" class="tl_text" value="'.specialchars($this->varValue[$i]).'"' . $this->getAttributes() . ' /></td>';
-			$return .= '<td style="white-space:nowrap;">';
+			$return .= '<div class="wizard" style="margin: 0.5rem 0;"><input type="text" name="'.$this->strId.'[]" id="' . $this->strId . '_' . ($i+1) . '" style="width: 70%;" value="'.specialchars($this->varValue[$i]).'"' . $this->getAttributes() . ' />';
 			// Add buttons
 			foreach ($arrButtons as $button)
 			{
 				$buttontitle = ($hasTitles && array_key_exists($button, $this->arrConfiguration['buttonTitles'])) ? $this->arrConfiguration['buttonTitles'][$button] : $GLOBALS['TL_LANG'][$this->strTable][$button][0];
-				$return .= '<a href="'.$this->addToUrl('&amp;'.$strCommand.'='.$button.'&amp;cid='.$i.'&amp;id='.$this->currentRecord).'" title="'.specialchars($buttontitle).'" onclick="TextWizard.textWizard(this, \''.$button.'\', \'ctrl_'.$this->strId.'\'); return false;">'.$this->generateImage($button.'.gif', $buttontitle, 'class="tl_multitextwizard_img"').'</a> ';
+				$return .= '<a href="'.$this->addToUrl('&amp;'.$strCommand.'='.$button.'&amp;cid='.$i.'&amp;id='.$this->currentRecord).'" title="'.specialchars($buttontitle).'" onclick="TextWizard.textWizard(this, \''.$button.'\', \'tl_multitextwizard_rows_'.$this->strId.'\'); return false;">'.$this->generateImage($button.'.gif', $buttontitle, 'class="tl_multitextwizard_img"').'</a> ';
 			}
-			$return .= '</td></tr>';
+			$return .= '</div>';
 		}
 
 		return $return.'
-  </table></div>';
+  </div></div>';
 	}
 }
