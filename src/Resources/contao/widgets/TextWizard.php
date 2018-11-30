@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * @copyright  Helmut Schottmüller 2008-2013
@@ -7,7 +7,7 @@
  * @license    LGPL
  */
 
-namespace Contao;
+namespace Hschottm\TextWizardBundle;
 
 /**
  * Class TextWizard
@@ -64,11 +64,11 @@ class TextWizard extends \Widget
 	{
 		if (is_array($GLOBALS['TL_JAVASCRIPT']))
 		{
-			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'system/modules/textwizard/assets/textwizard.js');
+			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'bundle/hschottmtextwizardbundle/js/textwizard.js');
 		}
 		else
 		{
-			$GLOBALS['TL_JAVASCRIPT'] = array('system/modules/textwizard/assets/textwizard.js');
+			$GLOBALS['TL_JAVASCRIPT'] = array('bundle/hschottmtextwizardbundle/js/textwizard.js');
 		}
 
 		$arrButtons = array('new','copy', 'up', 'down', 'delete');
