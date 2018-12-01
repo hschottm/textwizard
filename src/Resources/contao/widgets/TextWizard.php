@@ -123,7 +123,7 @@ class TextWizard extends \Widget
     $return .= '<div id="tl_multitextwizard_rows_'.$this->strId.'">';
 		for ($i=0; $i<count($this->varValue); $i++)
 		{
-			$return .= '<div class="wizard" style="margin: 0.5rem 0;"><input type="text" name="'.$this->strId.'[]" id="' . $this->strId . '_' . ($i+1) . '" style="width: 70%;" value="'.specialchars($this->varValue[$i]).'"' . $this->getAttributes() . ' />';
+			$return .= '<div class="wizard" style="margin: 0.5rem 0;"><input type="text" class="tl_text" name="'.$this->strId.'[]" id="' . $this->strId . '_' . ($i+1) . '" style="width: 70%;" value="'.specialchars($this->varValue[$i]).'"' . $this->getAttributes() . ' />';
 			// Add buttons
 			foreach ($arrButtons as $button)
 			{
