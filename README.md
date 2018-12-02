@@ -1,6 +1,6 @@
-[![Latest Version on Packagist](http://img.shields.io/packagist/v/hschottm/textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/textwizard)
-[![Installations via composer per month](http://img.shields.io/packagist/dm/hschottm/textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/textwizard)
-[![Installations via composer total](http://img.shields.io/packagist/dt/hschottm/textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/textwizard)
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
+[![Installations via composer total](http://img.shields.io/packagist/dt/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
 
 # contao-textwizard
 Contao backend widget for text list input
