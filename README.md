@@ -10,18 +10,18 @@ contao-textwizard is a backend widget that can be used to add or edit a variable
 ```php
 'matrixrows' => array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_survey_question']['matrixrows'],
-	'exclude'                 => true,
-	'inputType'               => 'textwizard',
-	'eval'                    => array(
-		'allowHtml'=>true,
-		'decodeEntities' => true,
-		'buttonTitles' => array(
-			'new' => $GLOBALS['TL_LANG']['tl_survey_question']['buttontitle_matrixrow_new'],
-			'copy' => $GLOBALS['TL_LANG']['tl_survey_question']['buttontitle_matrixrow_copy'],
-			'delete' => $GLOBALS['TL_LANG']['tl_survey_question']['buttontitle_matrixrow_delete']
-		)
-	),
-	'sql'                     => "blob NULL"
+  'label'                   => &$GLOBALS['TL_LANG']['tl_survey_question']['matrixrows'],
+  'exclude'                 => true,
+  'inputType'               => 'textwizard',
+  'eval'                    => array(
+    'allowHtml'             => true,
+    'decodeEntities'        => true,
+    'buttonTitles'          => array(
+      'new'                 => $GLOBALS['TL_LANG']['tl_survey_question']['buttontitle_matrixrow_new'],
+      'copy'                => $GLOBALS['TL_LANG']['tl_survey_question']['buttontitle_matrixrow_copy'],
+      'delete'              => $GLOBALS['TL_LANG']['tl_survey_question']['buttontitle_matrixrow_delete']
+    )
+  ),
+  'sql'                     => "blob NULL"
 ),
 ```
