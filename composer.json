@@ -3,7 +3,7 @@
   "description":"Contao widget to enter multiple lines of text",
   "keywords":["contao", "widget", "extension", "input", "bundle", "wizard"],
   "type":"contao-bundle",
-  "license":"LGPL-3.0+, CC-BY-NC-3.0",
+  "license":["LGPL-3.0-or-later", "CC-BY-NC-SA-4.0"],
   "authors":[
     {
       "name":"Helmut Schottmüller",
