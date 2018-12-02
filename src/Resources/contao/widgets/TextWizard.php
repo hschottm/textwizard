@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @copyright  Helmut Schottmüller 2008-2013
+ * @copyright  Helmut Schottmüller 2008-2018
  * @author     Helmut Schottmüller <https://github.com/hschottm>
  * @package    Backend
- * @license    LGPL
+ * @license    LGPL-3.0+, CC-BY-NC-3.0
  */
 
 namespace Hschottm\TextWizardBundle;
@@ -12,10 +12,7 @@ namespace Hschottm\TextWizardBundle;
 /**
  * Class TextWizard
  *
- * Provide methods to handle text lists
- * @copyright  Helmut Schottmüller 2008-2013
- * @author     Helmut Schottmüller <https://github.com/hschottm>
- * @package    Controller
+ * Provide a backend wizard to handle text lists
  */
 class TextWizard extends \Widget
 {
@@ -64,11 +61,11 @@ class TextWizard extends \Widget
 	{
 		if (is_array($GLOBALS['TL_JAVASCRIPT']))
 		{
-			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'bundles/hschottmtextwizard/js/textwizard.js');
+			array_insert($GLOBALS['TL_JAVASCRIPT'], 1, 'bundles/hschottmtextwizard/js/textwizard.min.js');
 		}
 		else
 		{
-			$GLOBALS['TL_JAVASCRIPT'] = array('bundles/hschottmtextwizard/js/textwizard.js');
+			$GLOBALS['TL_JAVASCRIPT'] = array('bundles/hschottmtextwizard/js/textwizard.min.js');
 		}
 
 		$arrButtons = array('new','copy', 'up', 'down', 'delete');
@@ -117,7 +114,6 @@ class TextWizard extends \Widget
 		$wizard = ($this->wizard) ? '<div class="tl_wizard">' . $this->wizard . '</div>' : '';
 		// Add label
 		$return .= '<div class="tl_multitextwizard">' . $wizard;
-//		$return .= '<ul id="ctrl_'.$this->strId.'" class="tl_listwizard">';
 		$hasTitles = array_key_exists('buttonTitles', $this->arrConfiguration) && is_array($this->arrConfiguration['buttonTitles']);
 		// Add input fields
     $return .= '<div id="tl_multitextwizard_rows_'.$this->strId.'">';

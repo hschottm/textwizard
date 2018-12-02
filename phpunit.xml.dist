@@ -1,5 +1,0 @@
-<testsuites>
-    <testsuite name="TextWizard Bundle">
-        <directory>./tests</directory>
-    </testsuite>
-</testsuites>
