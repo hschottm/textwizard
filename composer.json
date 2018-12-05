@@ -1,6 +1,6 @@
 {
   "name":"hschottm/contao-textwizard",
-  "description":"Contao widget to enter multiple lines of text",
+  "description":"contao-textwizard is a backend widget that can be used to add or edit a variable list of text input fields unlike the Contao listWizard widget. Additionally to the listWizard functionality contao-textwizard selects the content of a newly created or duplicated text field and it adds a button to create an empty new text field.",
   "keywords":["contao", "widget", "extension", "input", "bundle", "wizard"],
   "type":"contao-bundle",
   "license":["LGPL-3.0-or-later", "CC-BY-NC-SA-4.0"],
