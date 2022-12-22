@@ -6,5 +6,6 @@
 .project
 composer.lock
 vendor
+.idea/
 # Transifex
 /.tx/
