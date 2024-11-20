@@ -2,7 +2,7 @@
 
 use Hschottm\TextWizardBundle\TextWizard;
 use Contao\System;
-use Contao\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 $GLOBALS['BE_FFL']['textwizard'] = TextWizard::class;
 
