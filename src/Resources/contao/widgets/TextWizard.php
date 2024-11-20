@@ -10,7 +10,6 @@
 namespace Hschottm\TextWizardBundle;
 
 use Contao\Widget;
-use Contao\Cache;
 use Contao\Image;
 use Contao\StringUtil;
 
@@ -78,11 +77,6 @@ class TextWizard extends Widget
 		if (empty($this->varValue) || !\is_array($this->varValue))
 		{
 			$this->varValue = array('');
-		}
-		// Initialize the tab index
-		if (!Cache::has('tabindex'))
-		{
-			Cache::set('tabindex', 1);
 		}
 
     $hasTitles = array_key_exists('buttonTitles', $this->arrConfiguration) && is_array($this->arrConfiguration['buttonTitles']);
