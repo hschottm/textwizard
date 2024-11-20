@@ -53,7 +53,7 @@ class TextWizard extends Widget
 				break;
 
 			case 'value':
-				$this->varValue = deserialize($varValue);
+				$this->varValue = StringUtil::deserialize($varValue);
 				break;
 
 			case 'mandatory':
