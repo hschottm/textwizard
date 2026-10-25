@@ -71,7 +71,7 @@ class TextWizard extends Widget
 	 */
 	public function generate()
 	{
-		$arrButtons = array('drag', 'new', 'copy', 'delete');
+		$arrButtons = array('new', 'copy', 'delete', 'drag');
         $stylesheet = 'bundles/hschottmtextwizard/css/textwizard.css';
         if (!in_array($stylesheet, $GLOBALS['TL_CSS'] ?? [], true)) {
             $GLOBALS['TL_CSS'][] = $stylesheet;
@@ -91,6 +91,7 @@ class TextWizard extends Widget
 		{
 			$return .= '
     <li>';
+					$return .= ' <input type="text" name="'.StringUtil::specialchars($this->strName).'[]" class="tl_text" value="'.StringUtil::specialchars($value).'"' . $this->getAttributes() . '>';
 			// Add buttons
 			foreach ($arrButtons as $button)
 			{
@@ -98,7 +99,6 @@ class TextWizard extends Widget
 				if ($button == 'drag')
 				{
 					$return .= ' <button type="button" class="drag-handle tl_textwizard_button" title="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" aria-label="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" data-action="keydown->contao--sortable#move">' . $icon . '</button>';
-					$return .= ' <input type="text" name="'.StringUtil::specialchars($this->strName).'[]" class="tl_text" value="'.StringUtil::specialchars($value).'"' . $this->getAttributes() . '>';
 				}
 				else
 				{

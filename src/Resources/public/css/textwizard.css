@@ -21,7 +21,8 @@
 }
 
 .tl_textwizard_button img {
-    display: block;
+    /* The button owns the tooltip; its decorative image must not become a second target. */
+    pointer-events: none;
     width: 16px;
     height: 16px;
 }

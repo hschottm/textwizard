@@ -23,6 +23,11 @@ document.addEventListener('click', function (event) {
     }
 
     const clone = row.cloneNode(true);
+    // Contao temporarily removes title while showing a tooltip. Do not clone that state.
+    clone.querySelectorAll('button[aria-label]').forEach(button => {
+        button.setAttribute('title', button.getAttribute('aria-label'));
+        button.removeAttribute('data-original-title');
+    });
     const input = clone.querySelector('input');
     input.value = command === 'copy' ? row.querySelector('input').value : '';
     row.after(clone);
