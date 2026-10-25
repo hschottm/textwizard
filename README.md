@@ -9,6 +9,23 @@ contao-textwizard is a backend widget that can be used to add or edit a variable
 
 ![textwizard](https://user-images.githubusercontent.com/873113/49338631-0781c200-f624-11e8-96a6-9567e19a178e.png)
 
+## Requirements
+
+- PHP 8.3 or later
+- Contao 5.7 LTS (`^5.7`)
+
+This version uses Contao's Stimulus sortable controller for drag-and-drop and
+keyboard sorting (arrow up/down on the drag handle). The new, copy and delete
+buttons work without MooTools, including widgets loaded via AJAX. Newly created
+or copied fields receive focus and their contents are selected. The final row
+cannot be deleted.
+
+After updating the package, clear the Contao cache and reinstall the bundle assets
+(e.g. `vendor/bin/contao-console cache:clear` and
+`vendor/bin/contao-console assets:install public`). Existing DCA definitions and
+serialized values remain compatible. Custom `buttonTitles` and `maxlength` are
+still supported.
+
 ## Use in the data container array (DCA)
 
 ```php
@@ -29,3 +46,5 @@ contao-textwizard is a backend widget that can be used to add or edit a variable
   'sql'                     => "blob NULL"
 ),
 ```
+
+Action icons are bundled Lucide 0.468.0 SVGs (https://github.com/lucide-icons/lucide/tree/0.468.0). License notices are in `src/Resources/public/icons/lucide/LICENSE`. No CDN or JavaScript icon runtime is needed.

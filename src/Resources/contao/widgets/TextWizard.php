@@ -10,7 +10,6 @@
 namespace Hschottm\TextWizardBundle;
 
 use Contao\Widget;
-use Contao\Image;
 use Contao\StringUtil;
 
 /**
@@ -72,7 +71,8 @@ class TextWizard extends Widget
 	 */
 	public function generate()
 	{
-		$arrButtons = array('new', 'copy', 'delete', 'drag');
+		$arrButtons = array('drag', 'new', 'copy', 'delete');
+        $icons = ['drag' => 'grip-vertical', 'new' => 'plus', 'copy' => 'copy', 'delete' => 'trash-2'];
 		// Make sure there is at least an empty array
 		if (empty($this->varValue) || !\is_array($this->varValue))
 		{
@@ -82,30 +82,31 @@ class TextWizard extends Widget
     $hasTitles = array_key_exists('buttonTitles', $this->arrConfiguration) && is_array($this->arrConfiguration['buttonTitles']);
 
     $return = ($this->wizard) ? '<div class="tl_wizard">' . $this->wizard . '</div>' : '';
-		$return .= '<ul id="ctrl_'.$this->strId.'" class="tl_listwizard tl_textwizard">';
+		$return .= '<ul id="ctrl_'.StringUtil::specialchars($this->strId).'" class="tl_listwizard tl_textwizard" data-controller="contao--sortable" data-contao--sortable-handle-value=".drag-handle">';
 		// Add input fields
-		for ($i=0, $c=\count($this->varValue); $i<$c; $i++)
+		foreach ($this->varValue as $value)
 		{
 			$return .= '
-    <li><input type="text" name="'.$this->strId.'[]" class="tl_text" value="'.StringUtil::specialchars($this->varValue[$i]).'"' . $this->getAttributes() . '> ';
+    <li>';
 			// Add buttons
 			foreach ($arrButtons as $button)
 			{
+                $icon = '<img src="bundles/hschottmtextwizard/icons/lucide/' . $icons[$button] . '.svg" width="16" height="16" alt="" aria-hidden="true">';
 				if ($button == 'drag')
 				{
-					$return .= ' <button type="button" class="drag-handle" title="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" aria-hidden="true">' . Image::getHtml('drag.svg') . '</button>';
+					$return .= ' <button type="button" class="drag-handle" title="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" aria-label="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" data-action="keydown->contao--sortable#move">' . $icon . '</button>';
+					$return .= ' <input type="text" name="'.StringUtil::specialchars($this->strName).'[]" class="tl_text" value="'.StringUtil::specialchars($value).'"' . $this->getAttributes() . '>';
 				}
 				else
 				{
           $buttontitle = ($hasTitles && array_key_exists($button, $this->arrConfiguration['buttonTitles'])) ? $this->arrConfiguration['buttonTitles'][$button] : $GLOBALS['TL_LANG']['MSC']['lw_'.$button];
-					$return .= ' <button type="button" data-command="' . $button . '" title="' . StringUtil::specialchars($buttontitle) . '">' . Image::getHtml($button.'.svg') . '</button>';
+					$return .= ' <button type="button" data-command="' . $button . '" title="' . StringUtil::specialchars($buttontitle) . '" aria-label="' . StringUtil::specialchars($buttontitle) . '">' . $icon . '</button>';
 				}
 			}
 			$return .= '</li>';
 		}
 		return $return.'
-  </ul>
-  <script>TextWizard.textWizard("ctrl_'.$this->strId.'")</script>';
+  </ul>';
 	}
 }
 
