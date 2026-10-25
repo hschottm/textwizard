@@ -1,0 +1,31 @@
+.tl_textwizard .tl_textwizard_button {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 22px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.tl_textwizard .tl_textwizard_button:focus-visible {
+    outline: 2px solid var(--blue, #006494);
+    outline-offset: 1px;
+}
+
+.tl_textwizard_button img {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.tl_textwizard .tl_textwizard_button.drag-handle {
+    cursor: grab;
+}

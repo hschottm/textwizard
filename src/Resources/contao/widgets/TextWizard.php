@@ -72,7 +72,10 @@ class TextWizard extends Widget
 	public function generate()
 	{
 		$arrButtons = array('drag', 'new', 'copy', 'delete');
-        $icons = ['drag' => 'grip-vertical', 'new' => 'plus', 'copy' => 'copy', 'delete' => 'trash-2'];
+        $stylesheet = 'bundles/hschottmtextwizard/css/textwizard.css';
+        if (!in_array($stylesheet, $GLOBALS['TL_CSS'] ?? [], true)) {
+            $GLOBALS['TL_CSS'][] = $stylesheet;
+        }
 		// Make sure there is at least an empty array
 		if (empty($this->varValue) || !\is_array($this->varValue))
 		{
@@ -91,16 +94,16 @@ class TextWizard extends Widget
 			// Add buttons
 			foreach ($arrButtons as $button)
 			{
-                $icon = '<img src="bundles/hschottmtextwizard/icons/lucide/' . $icons[$button] . '.svg" width="16" height="16" alt="" aria-hidden="true">';
+                $icon = \Contao\Image::getHtml($button . '.svg', '', 'aria-hidden="true"');
 				if ($button == 'drag')
 				{
-					$return .= ' <button type="button" class="drag-handle" title="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" aria-label="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" data-action="keydown->contao--sortable#move">' . $icon . '</button>';
+					$return .= ' <button type="button" class="drag-handle tl_textwizard_button" title="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" aria-label="' . StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['move']) . '" data-action="keydown->contao--sortable#move">' . $icon . '</button>';
 					$return .= ' <input type="text" name="'.StringUtil::specialchars($this->strName).'[]" class="tl_text" value="'.StringUtil::specialchars($value).'"' . $this->getAttributes() . '>';
 				}
 				else
 				{
           $buttontitle = ($hasTitles && array_key_exists($button, $this->arrConfiguration['buttonTitles'])) ? $this->arrConfiguration['buttonTitles'][$button] : $GLOBALS['TL_LANG']['MSC']['lw_'.$button];
-					$return .= ' <button type="button" data-command="' . $button . '" title="' . StringUtil::specialchars($buttontitle) . '" aria-label="' . StringUtil::specialchars($buttontitle) . '">' . $icon . '</button>';
+					$return .= ' <button type="button" class="tl_textwizard_button" data-command="' . $button . '" title="' . StringUtil::specialchars($buttontitle) . '" aria-label="' . StringUtil::specialchars($buttontitle) . '">' . $icon . '</button>';
 				}
 			}
 			$return .= '</li>';
