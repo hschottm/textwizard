@@ -14,18 +14,6 @@ contao-textwizard is a backend widget that can be used to add or edit a variable
 - PHP 8.3 or later
 - Contao 5.7 LTS (`^5.7`)
 
-This version uses Contao's Stimulus sortable controller for drag-and-drop and
-keyboard sorting (arrow up/down on the drag handle). The new, copy and delete
-buttons work without MooTools, including widgets loaded via AJAX. Newly created
-or copied fields receive focus and their contents are selected. The final row
-cannot be deleted.
-
-After updating the package, clear the Contao cache and reinstall the bundle assets
-(e.g. `vendor/bin/contao-console cache:clear` and
-`vendor/bin/contao-console assets:install public`). Existing DCA definitions and
-serialized values remain compatible. Custom `buttonTitles` and `maxlength` are
-still supported.
-
 ## Use in the data container array (DCA)
 
 ```php
@@ -47,4 +35,28 @@ still supported.
 ),
 ```
 
-Action icons are bundled Lucide 0.468.0 SVGs (https://github.com/lucide-icons/lucide/tree/0.468.0). License notices are in `src/Resources/public/icons/lucide/LICENSE`. No CDN or JavaScript icon runtime is needed.
+## Release history
+
+### Contao 5.7 support
+
+* Added support for Contao 5.7 and PHP 8.3 or newer.
+* Added drag-and-drop and keyboard sorting using the up/down arrow keys on the drag handle.
+* Updated the new, copy and delete buttons to work with dynamically loaded widgets.
+* Newly created or copied fields receive focus and their contents are selected.
+* Prevented deletion of the final row.
+* Preserved compatibility with existing DCA definitions and stored values, including custom `buttonTitles` and `maxlength` settings.
+* Updated action icons to locally bundled SVGs.
+
+## Updating existing installations
+
+After updating the extension, clear the Contao cache and reinstall the bundle assets:
+
+```sh
+vendor/bin/contao-console cache:clear
+vendor/bin/contao-console assets:install public
+```
+
+## Credits
+
+Action icons are from [Lucide 0.468.0](https://github.com/lucide-icons/lucide/tree/0.468.0).
+License notices are included in `src/Resources/public/icons/lucide/LICENSE`.
