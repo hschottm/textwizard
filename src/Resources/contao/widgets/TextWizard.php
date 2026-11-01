@@ -4,7 +4,7 @@
  * @copyright  Helmut Schottmüller 2008-2024
  * @author     Helmut Schottmüller <https://github.com/hschottm>
  * @package    Backend
- * @license    LGPL-3.0+, CC-BY-NC-3.0
+ * @license    LGPL-3.0-or-later
  */
 
 namespace Hschottm\TextWizardBundle;
