@@ -28,7 +28,7 @@ Historical entries were reconstructed from tag diffs and the former README histo
 ### [3.6.1] - 2026-10-28
 
 - Refined widget action icon rendering, positioning and CSS layout.
-- Preserved input IDs when creating or copying rows. Updated the README screenshot source.
+- Restored button tooltip titles when creating or copying rows. Updated the README screenshot source.
 
 ### [3.6.0] - 2026-10-25
 
