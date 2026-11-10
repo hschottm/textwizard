@@ -1,3 +1,5 @@
+![Contao Text Wizard](logo.svg)
+
 [![Latest Version on Packagist](http://img.shields.io/packagist/v/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
 [![Installations via composer per month](http://img.shields.io/packagist/dm/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
 [![Installations via composer total](http://img.shields.io/packagist/dt/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
@@ -67,3 +69,11 @@ This extension is licensed under the GNU Lesser General Public License, version 
 or (at your option) any later version (`LGPL-3.0-or-later`). See [LICENSE](LICENSE).
 
 Bundled third-party assets retain their respective licenses and copyright notices.
+
+## Package icon
+
+The scalable [logo.svg](logo.svg) combines text lines, a magic wand and a sparkle
+on an anthracite background with an orange corner, matching the extension family.
+For display in the Contao Manager, the logo is maintained separately in
+[contao/package-metadata](https://github.com/contao/package-metadata) under
+`meta/hschottm/contao-textwizard/logo.svg`.
