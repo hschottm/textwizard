@@ -1,3 +1,5 @@
+![Contao Text Wizard](logo.svg)
+
 [![Latest Version on Packagist](http://img.shields.io/packagist/v/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
 [![Installations via composer per month](http://img.shields.io/packagist/dm/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
 [![Installations via composer total](http://img.shields.io/packagist/dt/hschottm/contao-textwizard.svg?style=flat)](https://packagist.org/packages/hschottm/contao-textwizard)
@@ -29,3 +31,11 @@ contao-textwizard is a backend widget that can be used to add or edit a variable
   'sql'                     => "blob NULL"
 ),
 ```
+
+## Package icon
+
+The scalable [logo.svg](logo.svg) combines text lines, a magic wand and a sparkle
+on an anthracite background with an orange corner, matching the extension family.
+For display in the Contao Manager, the logo is maintained separately in
+[contao/package-metadata](https://github.com/contao/package-metadata) under
+`meta/hschottm/contao-textwizard/logo.svg`.
