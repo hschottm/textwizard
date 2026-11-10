@@ -37,17 +37,9 @@ contao-textwizard is a backend widget that can be used to add or edit a variable
 ),
 ```
 
-## Release history
+## Changelog
 
-### Contao 5.7 support
-
-* Added support for Contao 5.7 and PHP 8.3 or newer.
-* Added drag-and-drop and keyboard sorting using the up/down arrow keys on the drag handle.
-* Updated the new, copy and delete buttons to work with dynamically loaded widgets.
-* Newly created or copied fields receive focus and their contents are selected.
-* Prevented deletion of the final row.
-* Preserved compatibility with existing DCA definitions and stored values, including custom `buttonTitles` and `maxlength` settings.
-* Updated action icons to locally bundled SVGs.
+See [CHANGELOG.md](CHANGELOG.md) for changes grouped by release tag.
 
 ## Updating existing installations
 
