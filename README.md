@@ -39,3 +39,7 @@ on an anthracite background with an orange corner, matching the extension family
 For display in the Contao Manager, the logo is maintained separately in
 [contao/package-metadata](https://github.com/contao/package-metadata) under
 `meta/hschottm/contao-textwizard/logo.svg`.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for changes grouped by release tag.
